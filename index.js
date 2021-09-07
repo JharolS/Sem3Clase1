@@ -102,3 +102,84 @@ const animals = ['dog', 'cat', 'bird', 'fish', 'lizard'];
 animals.forEach((animal) => {
     console.log(animal)
 })
+
+for (let i = 0; i < 5; i++){
+    for (let j = 0; j < 5; j++){
+        console.log(`i= ${i}, j= ${j}`)
+    }
+}
+
+for (let i = 0; i < animals.length; i++) {
+    if(animals[i] === 'cat') break;
+    console.log(`index: ${i}, value: ${animals[i]}`)
+}
+
+let n = 0;
+while(n < 10) {
+    if(n === 3) break;
+    n++;
+    console.log(n)
+}
+
+for (let i = 1; i <= 10; i++) {
+    if(i % 2 === 1) continue;
+    console.log(i);
+}
+
+myloop:
+for (let i = 1; i <= 10; i++) {
+    if(i % 2 === 0) continue myloop
+    console.log(i);
+}
+
+loopOne: for (let i = 1; i <= 5; i++) {
+    loopTwo: for (let j = 1; j <= 5; j++){
+        if (i === 3) continue loopOne;
+        if (j === 3) break loopTwo;
+        console.log(`i= ${i}, j= ${j}`);
+    }
+}
+
+// number of iteration
+// use 100 iteration
+
+const iteration = 100;
+
+const arraySize = new Array(iteration);
+
+console.log('Starting speed/execution test permance with arraySize iteration', iteration);
+console.log(`arraySize ${arraySize.length}`)
+
+// for 
+console.time('for');
+for(let i = 0; i<iteration; i++){}
+console.timeEnd('for')
+
+//while
+console.time('while')
+let y=0;
+while(y < iteration){
+    y++;
+}
+console.timeEnd('while')
+
+//do...while
+console.time('do...while')
+let ie=0;
+do {ie++;} while(ie < iteration);
+console.timeEnd('do...while')
+
+//for...in 
+console.time('for...in')
+for(let i in arraySize){}
+console.timeEnd('for...in')
+
+//for...of
+console.time('for...of')
+for(let i of arraySize){}
+console.timeEnd('for...of');
+
+// for...each
+console.time('for...each');
+arraySize.forEach((item) => {});
+console.timeEnd('for...each');
