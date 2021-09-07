@@ -75,5 +75,30 @@ const shark = {
     numberOfTeeth: Infinity
 }
 for (atribute in shark){
-    console.log(atribute)
+    console.log(shark[atribute])
 }
+
+for (let fishAtribute of fishList) {
+    console.log(fishAtribute)
+}
+
+for (let [index, fishAtribute] of fishList.entries()){
+    console.log(index, fishAtribute)
+}
+
+const person = {
+    name: 'John',
+    age: 30,
+    city: 'New York',
+    maritalStatus: 'married'
+}
+
+for (let info in person){
+    console.log(`${info}: ${person[info]}`)
+}
+
+const animals = ['dog', 'cat', 'bird', 'fish', 'lizard'];
+
+animals.forEach((animal) => {
+    console.log(animal)
+})
